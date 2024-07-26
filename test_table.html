@@ -32,17 +32,20 @@
         .memListTbl tr th {
             border: 1px solid black;
         }
-        .memListTbl tr td {
+         tr td {
             border: 1px solid black;
             text-align: center;
         }
-        .subTbl tr td{
-            border: 0px solid black;
-            width: 100%;
-            border-collapse: collapse;
-        }
         .subTbl tr td {
-            border-bottom: 1px solid black;
+            border-left: 0 solid black;
+            border-right: 0 solid black;
+            border-top: 0 solid black;
+            border-bottom: 1 solid black;
+        }
+        div.container {
+            margin: auto;
+            max-width: 800px;
+            min-width: 600px;
         }
     </style>
 </head>
@@ -130,7 +133,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <table class="subTbl" width="100%">
+                        <table class="subTbl" width="100%" cellspacing="0">
                             <tr>
                                 <td width="10px">번호</td>
                                 <td>댓글내용</td>
@@ -140,17 +143,17 @@
                             </tr>
                             <tr>
                                 <td>1</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>멋진 사진입니다.</td>
+                                <td>박문수</td>
+                                <td>수정</td>
+                                <td>삭제</td>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>좋아요^^ 퍼가요~</td>
+                                <td>일지매</td>
+                                <td>수정</td>
+                                <td>삭제</td>
                             </tr>
                             <tr>
                                 <td colspan="5">
