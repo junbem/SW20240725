@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            var memoTxt = document.getElementById("memoTxt");
+            var demo = document.querySelector('#demo');
+            var clickBtn = document.querySelector('#clickBtn');
+            var resetBtn = document.querySelector('#resetBtn');
+            
+            var handleEvent = (function(event){
+                //console.dir(event);
+                demo.innerHTML += "<br>" + memoTxt.value;
+                memoTxt.value = "";
+                memoTxt.focus();
+            });
+
+            clickBtn.addEventListener('click', handleEvent);
+            // Enter키를 누르면 메모를 텍스트로 변경.
+            // 1. memoTxt 인풋에 키이벤트 핸들러
+            // 2. Enter키인지 확인
+            // 3. Enter키라면 데이터 처리
+
+            clickBtn.addEventListener('keyup', function(e){
+                    if(e.key === 13){
+                        var memoTxtVal = memoTxt.value;
+                        demo.innerHTML = memoTxtVal;
+                        memoTxt.value = "";
+                        memoTxt.focus();
+                        console.dir(event);
+                    }
+                }
+            );
+            memoTxt.onkeyup = function(event){
+                //function 함수에서는 this가 이벤트가 발생한 객체이다
+                //화살표 함수에서 this는 객체 자신
+                
+                console.log(memoTxt.value);
+                //이벤트 핸들러 안에서 event 객체는 자동생성
+                //그러나 event 매개변수를 직접 선언하는 것이 안전하다.
+                console.log(event.target);
+                 // 키코드 확인 
+                if(event.keyCode === 13){
+                    handleEvent(event);
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    
+    메모 : <input type="text" id="memoTxt" value="안녕 세계">
+    <p id="demo">JavaScript can change HTML content.</p>
+
+    <!-- 인터널 방식 적용 -->
+    <button type="button" id="clickBtn">Click</button>
+    <button type="button" id="resetBtn">Reset</button>
+
+</body>
+</html>
