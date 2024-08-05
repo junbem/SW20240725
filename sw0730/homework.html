@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btns{
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+        #btns button{
+            background-color: white;
+            border-color: black;
+        }
+    </style>
+</head>
+<body>
+    <p>[updown] 숫자를 골라 주세요</p>
+    <p id="result">결과: </p>
+    <div id="btns"></div>
+
+    <script>
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min) + min);
+        }
+        var number = getRandomNumber(1, 101);
+        console.log(number);
+        var cnt = 7;
+        var min = 1;
+        var max = 100;
+
+        let btns = document.querySelector("#btns");
+        let result  = document.querySelector("#result");
+
+        function draw(){
+            btns.innerHTML = "";
+            for(var i = min; i <= max; i++) {
+                let btn = document.createElement("button");
+                btn.innerText = i;
+
+                btns.appendChild(btn);
+
+                btn.onclick = function(e) {
+                    cnt--;
+                    let selNum = Number(e.target.innerText);
+                    switch(true) {
+                        case (selNum == number):
+                            result.innerText = "결과: 맞췄습니다.";
+                            console.log(selNum);
+                            min = max = number;
+                            break;
+                        case (selNum < number):
+                            result.innerText = "결과: 너무 작은 숫자를 선택하셨습니다. ";
+                            result.innerText += " 기회는 " + cnt + "번 남았습니다.";
+                            min = selNum + 1;
+                            break;
+                        case (selNum > number):
+                            result.innerText = "결과: 너무 큰 숫자를 선택하셨습니다. ";
+                            result.innerText += " 기회는 " + cnt + "번 남았습니다.";
+                            max = selNum - 1;
+                            break;
+                        }
+
+
+                    console.log(selNum);
+
+                    if(selNum != number && cnt <= 0){
+                        min = 1;
+                        max = 100;
+                        number = getRandomNumber(min, max+1);
+                        result.innerText = "결과: 실패하셨습니다! 게임을 다시 시작합니다!";
+                        cnt = 5;
+                        console.log(number);
+                    }
+                    draw();
+                }
+            }
+        }
+        draw();
+    </script>
+</body>
+</html>
