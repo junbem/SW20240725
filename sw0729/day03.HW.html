@@ -19,6 +19,8 @@
         ];
         var seqCnt = 106;
 
+        localStorage.setItem("todoList", JSON.stringify(todoList));
+        
         window.onload=function() {
             var memoTxt = document.getElementById('memoTxt');
             var demo = document.querySelector('#demo');
