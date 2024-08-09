@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeWork</title>
+    <style>
+
+         td.modifyBox {
+            display: none;
+        }
+        /* 네비게이션 바*/
+        header {
+            border : 0px solid gray;
+            width : 1000px;
+            margin : auto;           
+        }
+        h1 {
+            text-align:center;
+        }
+        
+        h2 {
+            text-align:auto;
+        }
+
+        ul {
+            margin: auto;
+            border: 0px solid red;
+            padding: 0;
+            /*height 속성을 주지 않고 overflow 설정*/
+            /*height : 40pxl*/
+            overflow: hidden;
+            width: 600px;
+        }
+        header ul li {
+            width: 120px;
+            height: 50px;
+            border: 0px solid black;
+            text-align: center;
+            list-style: none;
+            float: left;
+            box-sizing : border-box;
+            line-height: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        nav{
+            border-bottom: 0px solid red;
+        }
+        header ul li:hover {
+            border-bottom:2px solid red;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>햄버거 하우스 게임</h1>
+        
+        <nav>
+            <ul>
+                
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="HamburgerHouseGame.html">Game</a></li>
+                <li><a href="Shop.html">Shop</a></li>
+                <li>Shop</li>
+                <li>Login</li>
+            </u1>
+        </nav>
+    </header>
+
+    <h2>축하합니다! 당신의 점수는:</h2>
+    <div id="scoreDisplay"></div>
+
+    <script>
+        // 로컬 스토리지에서 점수 가져오기
+        const score = localStorage.getItem('gameScore');
+        
+        // 점수를 화면에 출력
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        if (score !== null) {
+            scoreDisplay.innerText = score + " 점";
+        } else {
+            scoreDisplay.innerText = "점수를 가져올 수 없습니다.";
+        }
+    </script>
+
+</body>
+</html>
+
+ 
