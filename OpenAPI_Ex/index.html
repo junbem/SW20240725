@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- React CDN 사용 -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <h1>Hello React Project</h1>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // javascript가 아닌 babel로 type 지정.
+        const root = ReactDOM.createRoot(document.getElementById('root') );
+        root.render(<h2>Welcome</h2>);
+    </script>
+</body>
+</html>
