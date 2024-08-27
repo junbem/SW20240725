@@ -87,6 +87,21 @@ router.route("/login").post((req,res)=> {
         }
     }
 });
+oruter.orute("/logout").get(async(req, res)=>{
+    console.log("GET - /logot 호출 ...");
+    // 로그인된 상태라면 로그아웃
+    if(!req.session.user){
+        console.log("아직 로그인 전 상태입니다.");
+        res.redirect("/login");
+        return;
+    }
+    // 세션의 user 정보를 제거해서 logout 처리
+    req.session.destroy((err)=>{
+        if(err) throw err;
+        console.log("로그아웃 성공!");
+        res.redirect("/login");
+    });
+});
 router.route("/joinus").get((req,res)=> {
     // 회원 가입 ejs 페이지 forward
     req.app.render("member/Joinus", {}, (err, html)=>{
